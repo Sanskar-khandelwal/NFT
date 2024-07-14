@@ -1,0 +1,20 @@
+{
+  "attributes": [
+    {
+      "trait_type": "is Happy",
+      "value": "False"
+    },
+    {
+      "trait_type": "Wanna Be Happy",
+      "value": "true"
+    },
+    {
+      "trait_type": "Pretending to be happy",
+      "value": "True"
+    }
+  ],
+  "description": "A collection of Emoji that has different moods.",
+  "image": "ipfs://bafybeietjiuzcwlxw6estokdi2j22k7hawlhydoyonn7l5yabggjrwvbju/fakesmile.png",
+  "name": "Fake Smile Nft 0",
+  "title": "Emoji NFTS"
+}
