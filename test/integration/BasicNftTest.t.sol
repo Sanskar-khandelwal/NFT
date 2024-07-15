@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.18;
 import {Test, console} from "forge-std/Test.sol";
-import {BasicNft} from "../src/BasicNft.sol";
-import {DeployBasicNft} from "../script/DeployBasicNft.s.sol";
+import {BasicNft} from "../../src/BasicNft.sol";
+import {DeployBasicNft} from "../../script/DeployBasicNft.s.sol";
 
 contract BasicNftTest is Test {
     DeployBasicNft public deployer;
@@ -18,7 +18,7 @@ contract BasicNftTest is Test {
     }
 
     function testNameIsCorrect() public view {
-        string memory expectedName = "PretendingHappy";
+        string memory expectedName = "Dog";
         string memory actualName = basicNft.name();
         assert(
             keccak256(abi.encodePacked(expectedName)) ==
