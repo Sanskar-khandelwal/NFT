@@ -6,6 +6,7 @@ import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
 
 contract MoodNft is ERC721 {
+    event NftMinted(uint256 indexed s_tokenCounter);
     error MoodNft__CantFlipMoodIfNotOwner();
     uint256 private s_tokenCounter;
     string private s_sadSvgImageUri;
@@ -32,6 +33,7 @@ contract MoodNft is ERC721 {
         _safeMint(msg.sender, s_tokenCounter);
         s_tokenIdToMood[s_tokenCounter] = Mood.Happy;
         s_tokenCounter++;
+        emit NftMinted(s_tokenCounter);
     }
 
     function _baseURI() internal pure override returns (string memory) {
@@ -71,7 +73,7 @@ contract MoodNft is ERC721 {
                             abi.encodePacked(
                                 '{ "name": "',
                                 name(),
-                                '", "description": "An NFT that reflects the owners mood.","attributes": [{"trait_type": "moodniness", "value": 100}]", "image": "',
+                                '", "description": "An NFT that reflects the owners mood.","attributes": [{"trait_type": "moodniness", "value": 100}], "image": "',
                                 imageURI,
                                 '"}'
                             )
@@ -79,5 +81,18 @@ contract MoodNft is ERC721 {
                     )
                 )
             );
+    }
+
+    //getter functions
+    function getTokenCounter() public view returns (uint256) {
+        return s_tokenCounter;
+    }
+
+    function getSadSvgImageURI() public view returns (string memory) {
+        return s_sadSvgImageUri;
+    }
+
+    function getHappySvgImageURI() public view returns (string memory) {
+        return s_happySvgImageUri;
     }
 }
