@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useReadContract, useWriteContract, useAccount } from "wagmi";
+import { useReadContract, useWriteContract } from "wagmi";
 import { MoodNftAbi } from "./abi";
 import { config } from "./wagmiConfig.ts";
 import { watchContractEvent } from "@wagmi/core";
