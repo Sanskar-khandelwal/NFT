@@ -7,7 +7,6 @@ import { watchContractEvent } from "@wagmi/core";
 import "./App.css";
 
 function App() {
-  const { address } = useAccount();
   const [message, setMessage] = useState("");
   const { writeContractAsync } = useWriteContract();
   const [tokenCounter, settokenCounter] = useState<any>();
@@ -98,6 +97,7 @@ function App() {
         This is a dynamic Nft, that is 100% on chain and depends on the owners
         mood, NFT is sad minting will make it happy
       </p>
+      {tokenCounter && <p className="mt-10">{`${tokenCounter} NFT minted`} </p>}
       {message && (
         <div>
           <p>{message}</p>
